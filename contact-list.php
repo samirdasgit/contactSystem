@@ -13,7 +13,7 @@
       <th>Name</th>
       <th>Mobile No</th>
       <th>City</th>
-      <th>Action</th>
+      <th colspan="2">Action</th>
     </tr>
     <?php
     $count=0;
@@ -31,10 +31,19 @@
         <td><?php echo $mobile_no; ?></td>
         <td><?php echo $city; ?></td>
         <td><a href="contact-update.php?sl=<?php echo $sl; ?>">Update</a></td>
+        <td><a href="javascript:void(0);" onclick="deleteContact('<?php echo $sl; ?>')">Delete</a></td>
       </tr>
       <?php
     }
     ?>
   </table>
+  <script>
+    function deleteContact(sl){
+      var conf=confirm('Are you sure?');
+      if(conf==true){
+        window.location.href='contact-delete.php?sl='+sl;
+      }
+    }
+  </script>
 </body>
 </html>
